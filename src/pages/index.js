@@ -24,7 +24,31 @@ const Index = () => {
         </Details>
       </Welcome>
 
-      <List />
+      <List>
+        <h2>Recent Goals</h2>
+        <ul>
+          <li>
+            Make UnPlan, like for real{" "}
+            <span>
+              <Support iconFill="#b9bab9" width="1.3rem" height="1.3rem" />1
+            </span>
+          </li>
+          <li>
+            Make a utlity belt{" "}
+            <span>
+              <Support iconFill="#b9bab9" width="1.3rem" height="1.3rem" />
+              12
+            </span>
+          </li>
+          <li>
+            Be Awesome{" "}
+            <span>
+              <Support iconFill="#b9bab9" width="1.3rem" height="1.3rem" />
+              30
+            </span>
+          </li>
+        </ul>
+      </List>
     </div>
   );
 };
@@ -35,11 +59,11 @@ const Welcome = styled.div`
   background: #ffffff url(${profilePic}) center no-repeat;
   background-blend-mode: multiply;
 
+  box-shadow: 0 0 28px 10px rgba(0, 0, 0, 0.2);
+
   width: 98%;
   max-width: 1000px;
   height: 19rem;
-
-  border-radius: 10px;
 
   display: flex;
   align-items: flex-end;
@@ -52,9 +76,6 @@ const Details = styled.div`
   @supports (background: rgba(255, 255, 255, 0.8)) {
     background: rgba(255, 255, 255, 0.8);
   }
-
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
 
   width: 100%;
   padding: 0 2rem;
@@ -99,4 +120,49 @@ const Meter = styled.div`
     `}
 `;
 
-const List = styled.div``;
+const List = styled.div`
+  background: white;
+  box-shadow: 0 0 28px 10px rgba(0, 0, 0, 0.2);
+
+  margin-top: 5rem;
+
+  max-width: 1000px;
+
+  h2 {
+    font-family: "Fira Sans", sans-serif;
+    font-size: 4rem;
+
+    color: #333333;
+    @supports (color: rgba(0, 0, 0, 0.5)) {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    display: inline-block;
+    margin: -4rem 0 -4rem 1rem;
+  }
+
+  ul {
+    list-style: none;
+    margin-left: -20px;
+  }
+
+  li {
+    font-size: 1.3rem;
+
+    display: flex;
+    justify-content: space-between;
+
+    margin-right: 0.5rem;
+    padding: 1rem 0;
+
+    border-top: 1px solid #e9e9e9;
+
+    svg {
+      margin-right: 0.5rem;
+    }
+
+    span {
+      color: #b9bab9;
+    }
+  }
+`;

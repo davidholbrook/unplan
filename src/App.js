@@ -127,5 +127,5 @@ const Nav = styled.nav`
 `;
 
 const Push = styled.div`
-  margin-left: 20rem;
+  margin-left: 25rem;
 `;

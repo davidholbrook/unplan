@@ -23,6 +23,8 @@ const Index = () => {
           </span>
         </Details>
       </Welcome>
+
+      <List />
     </div>
   );
 };
@@ -35,7 +37,7 @@ const Welcome = styled.div`
 
   width: 98%;
   max-width: 1000px;
-  height: 20rem;
+  height: 19rem;
 
   border-radius: 10px;
 
@@ -50,6 +52,9 @@ const Details = styled.div`
   @supports (background: rgba(255, 255, 255, 0.8)) {
     background: rgba(255, 255, 255, 0.8);
   }
+
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 
   width: 100%;
   padding: 0 2rem;
@@ -93,3 +98,5 @@ const Meter = styled.div`
       color: #fd7014;
     `}
 `;
+
+const List = styled.div``;

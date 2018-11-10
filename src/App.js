@@ -1,9 +1,17 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink
+} from "react-router-dom";
 import styled from "styled-components";
 
-import Index from "./pages/index";
 import Logo from "./images/logo.svg";
+
+import Index from "./pages/index";
+import GoalsPage from "./pages/goals";
+import NotFound from "./pages/404";
 
 import Dashboard from "./components/icons/dashboard";
 import Goals from "./components/icons/goals";
@@ -40,8 +48,13 @@ class App extends Component {
               </NavLink>
             </ul>
           </Nav>
-          <Route path="/" exact component={Index} />
-          <Route component={NotFound} />
+          <Push>
+            <Switch>
+              <Route exact path="/" component={Index} />
+              <Route path="/goals" component={GoalsPage} />
+              <Route component={NotFound} />
+            </Switch>
+          </Push>
         </div>
       </Router>
     );
@@ -111,4 +124,8 @@ const Nav = styled.nav`
       }
     }
   }
+`;
+
+const Push = styled.div`
+  margin-left: 20rem;
 `;

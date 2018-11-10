@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 import Index from "./pages/index";
 import Logo from "./images/logo.svg";
+
+import Dashboard from "./components/icons/dashboard";
+import Goals from "./components/icons/goals";
+import Support from "./components/icons/support";
 
 class App extends Component {
   render() {
@@ -16,12 +20,28 @@ class App extends Component {
               Unplan your life
             </h1>
             <ul>
-              <li>Dashboard</li>
-              <li>Goals</li>
-              <li>Support</li>
+              <NavLink exact={true} activeClassName="is-active" to="/">
+                <li>
+                  <Dashboard iconFill="#b9bab9" />
+                  Dashboard
+                </li>
+              </NavLink>
+              <NavLink activeClassName="is-active" to="/goals">
+                <li>
+                  <Goals iconFill="#b9bab9" />
+                  Goals
+                </li>
+              </NavLink>
+              <NavLink activeClassName="is-active" to="/supports">
+                <li>
+                  <Support iconFill="#b9bab9" />
+                  Supports
+                </li>
+              </NavLink>
             </ul>
           </Nav>
           <Route path="/" exact component={Index} />
+          <Route component={NotFound} />
         </div>
       </Router>
     );
@@ -57,15 +77,37 @@ const Nav = styled.nav`
     list-style: none;
     margin: 0 -1rem 0 -3.5rem;
 
+    a {
+      color: #eeeeee;
+      text-decoration: none;
+      font-weight: bold;
+
+      font-weight: bold;
+
+      &.is-active {
+        color: #fd7014;
+        svg path {
+          fill: #fd7014;
+        }
+      }
+    }
+
     li {
       font-size: 1.5rem;
 
       margin: 0;
       padding: 1rem 0 1rem 1.5rem;
 
+      display: flex;
+      align-items: center;
+
       border-top: 1px solid #979797;
       &:last-child {
         border-bottom: 1px solid #979797;
+      }
+
+      svg {
+        margin-right: 1rem;
       }
     }
   }

@@ -1,57 +1,71 @@
-import React from "react";
+import React, { Component } from "react";
 import Helmet from "react-helmet";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+import { base } from "../components/fire";
 
 import profilePic from "../images/profile-image.jpg";
 import Goals from "../components/icons/goals";
 import Support from "../components/icons/support";
 
-const Index = () => {
-  return (
-    <div>
-      <Helmet title="Unplan | David's Dashboard" />
-      <Welcome>
-        <Details>
-          <h2>Welcome, David!</h2>
-          <span>
-            <Meter>
-              <Goals />0
-            </Meter>
-            <Meter active>
-              <Support iconFill="#FD7014" />6
-            </Meter>
-          </span>
-        </Details>
-      </Welcome>
+class Index extends Component {
+  state = {
+    goals: [],
+    loading: true
+  };
 
-      <List>
-        <h2>Recent Goals</h2>
-        <ul>
-          <li>
-            Make UnPlan, like for real{" "}
+  componentWillMount() {
+    base.bindCollection("goals", {
+      context: this,
+      state: "goals",
+      withRef: true,
+      withIds: true,
+      then() {
+        this.setState({ loading: false });
+      }
+    });
+  }
+
+  render() {
+    const listItem = this.state.goals.map((item, index) => {
+      return (
+        <li>
+          {item.name}
+          <span>
+            <Support iconFill="#b9bab9" width="20px" height="20px" />
+            {item.supports}
+          </span>
+        </li>
+      );
+    });
+    return (
+      <div>
+        <Helmet title="Unplan | David's Dashboard" />
+        <Welcome>
+          <Details>
+            <h2>Welcome, David!</h2>
             <span>
-              <Support iconFill="#b9bab9" width="1.3rem" height="1.3rem" />1
+              <Meter>
+                <Goals />0
+              </Meter>
+              <Meter active>
+                <Support iconFill="#FD7014" />6
+              </Meter>
             </span>
-          </li>
-          <li>
-            Make a utlity belt{" "}
-            <span>
-              <Support iconFill="#b9bab9" width="1.3rem" height="1.3rem" />
-              12
-            </span>
-          </li>
-          <li>
-            Be Awesome{" "}
-            <span>
-              <Support iconFill="#b9bab9" width="1.3rem" height="1.3rem" />
-              30
-            </span>
-          </li>
-        </ul>
-      </List>
-    </div>
-  );
-};
+          </Details>
+        </Welcome>
+
+        <List>
+          <h2>Recent Goals</h2>
+          {this.state.loading === true ? (
+            <Loading> Loading, hold on!</Loading>
+          ) : (
+            <ul>{listItem ? listItem : "No Goals created yet!"}</ul>
+          )}
+        </List>
+      </div>
+    );
+  }
+}
 
 export default Index;
 
@@ -165,4 +179,26 @@ const List = styled.div`
       color: #b9bab9;
     }
   }
+`;
+
+const PulseOut = keyframes`
+  to{
+    transform: scale(1);
+  }
+  from{
+    transform: scale(1.5);
+  }
+`;
+
+const Loading = styled.div`
+  font-size: 2rem;
+  color: #999999;
+  font-weight: bolder;
+
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: ${PulseOut} infinite 3s alternate ease-in-out;
 `;

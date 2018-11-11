@@ -6,6 +6,7 @@ import {
   NavLink
 } from "react-router-dom";
 import styled from "styled-components";
+import { base } from "./components/fire";
 
 import Logo from "./images/logo.svg";
 

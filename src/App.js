@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import styled from "styled-components";
 import { firebaseAuth } from "./components/fire";
+import { logout } from "./helpers/auth";
 
 import Logo from "./images/logo.svg";
 
@@ -107,12 +108,26 @@ class App extends Component {
                     Supports
                   </li>
                 </NavLink>
+
+                <button
+                  onClick={() => {
+                    logout();
+                  }}
+                  className="navbar-brand"
+                >
+                  Logout
+                </button>
               </ul>
             </Nav>
           ) : null}
           <Push>
             <Switch>
-              <Route path="/" exact component={Index} />
+              <PublicRoute
+                path="/"
+                authed={this.state.authed}
+                exact
+                component={Index}
+              />
               <PublicRoute
                 authed={this.state.authed}
                 path="/login"
@@ -151,6 +166,14 @@ const Nav = styled.nav`
 
   padding: 1rem;
 
+  @media (max-width: 1500px) {
+     position: relative;
+     width: 97.5vw;
+
+     display: flex;
+     justify-content: space-between;
+  }
+
   h1 {
     text-transform: uppercase;
 
@@ -165,6 +188,11 @@ const Nav = styled.nav`
   ul {
     list-style: none;
     margin: 0 -1rem 0 -3.5rem;
+
+    @media(max-width: 1500px){
+      margin: 0;
+      display: flex;
+    }
 
     a {
       color: #eeeeee;
@@ -197,11 +225,50 @@ const Nav = styled.nav`
 
       svg {
         margin-right: 1rem;
+        @media(max-width: 1500px){
+          height: 20px;
+          margin-right: .1rem;
+        }
       }
+
+      @media(max-width: 1500px){
+        font-size: 1rem;
+
+        border-top: none;
+        &:last-child {
+        border-bottom: none;
+      }
+      }
+
     }
-  }
+      button {
+      background: #fd7014;
+
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: #ffffff;
+
+      border: none;
+
+      display: flex;
+
+      height: 2rem;
+
+      padding: 1rem 2rem;
+
+      @media(max-width: 1500px){
+        font-size: 1rem;
+        padding: .5rem;
+        margin: 1rem 0 0 1rem;
+      }
+      }
+
+
 `;
 
 const Push = styled.div`
   margin-left: 25rem;
+  @media (max-width: 1500px) {
+    margin-left: 0rem;
+  }
 `;

@@ -87,6 +87,10 @@ const Wrapper = styled.div`
 
   ${"" /* counteract the PUSH */}
   margin-left: -25rem;
+
+  @media (max-width: 1500px) {
+    margin-left: 0rem;
+  }
   form {
     background: #ffffff;
 

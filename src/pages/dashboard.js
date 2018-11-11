@@ -38,7 +38,7 @@ class Dashboard extends Component {
       );
     });
     return (
-      <div>
+      <div style={{ marginLeft: "10rem" }}>
         <Helmet title="Unplan | David's Dashboard" />
         <Welcome>
           <Details>

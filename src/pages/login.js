@@ -31,41 +31,35 @@ export default class LoginPage extends Component {
     return (
       <div>
         <Wrapper>
-          <form onSubmit={this.handleSubmit}>
-            <Logo width="150px" height="150px" iconFill="#FD7014" />
-            <label>Email</label>
-            <input
-              type="email"
-              className="form-control"
-              ref={email => (this.email = email)}
-              placeholder="adam@awesomewater.com"
-            />
+          {this.props.loading === false ? (
+            <form onSubmit={this.handleSubmit}>
+              <Logo width="100px" height="100px" iconFill="#FD7014" />
 
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Wow, Awesome!"
-              ref={pw => (this.pw = pw)}
-            />
-            {this.state.loginMessage && (
-              <div className="alert alert-danger" role="alert">
-                <span
-                  className="glyphicon glyphicon-exclamation-sign"
-                  aria-hidden="true"
-                />
-                <span className="sr-only">Error:</span>
-                &nbsp;{this.state.loginMessage}{" "}
-                <a href="#" onClick={this.resetPassword} className="alert-link">
-                  Forgot Password?
-                </a>
-              </div>
-            )}
+              {this.state.loginMessage && (
+                <Alert>Error: &nbsp;{this.state.loginMessage}</Alert>
+              )}
 
-            <button type="submit" className="btn btn-primary">
-              Login
-            </button>
-          </form>
+              <label>Email</label>
+              <input
+                type="email"
+                className="form-control"
+                ref={email => (this.email = email)}
+                placeholder="david@cool.com"
+              />
+
+              <label>Password</label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="AwesomePancake88"
+                ref={pw => (this.pw = pw)}
+              />
+
+              <button type="submit" className="btn btn-primary">
+                Login
+              </button>
+            </form>
+          ) : null}
         </Wrapper>
       </div>
     );
@@ -101,6 +95,8 @@ const Wrapper = styled.div`
     padding: 2rem;
 
     label {
+      font-size: 0.8rem;
+
       display: block;
       margin-top: 1rem;
 
@@ -109,20 +105,22 @@ const Wrapper = styled.div`
 
     input {
       width: 100%;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
+
+      padding: 0.5rem;
     }
 
     button {
       background: #fd7014;
 
-      font-size: 1.5rem;
+      font-size: 1rem;
       text-transform: uppercase;
       color: #ffffff;
 
       border: none;
 
       display: block;
-      margin: 2rem auto;
+      margin: 2rem auto 0 auto;
       padding: 1rem 2rem;
     }
 
@@ -130,5 +128,20 @@ const Wrapper = styled.div`
       display: block;
       margin: 0 auto;
     }
+  }
+`;
+
+const Alert = styled.div`
+  background: #e73b55;
+  color: #ffffff;
+  font-size: 0.8rem;
+
+  text-align: center;
+
+  padding: 1rem;
+  margin-top: 1rem;
+
+  a {
+    color: #ffffff;
   }
 `;

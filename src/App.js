@@ -57,7 +57,8 @@ function PublicRoute({ component: Component, authed, ...rest }) {
 class App extends Component {
   state = {
     authed: false,
-    loading: true
+    loading: true,
+    user: null
   };
 
   componentDidMount() {
@@ -65,7 +66,8 @@ class App extends Component {
       if (user) {
         this.setState({
           authed: true,
-          loading: false
+          loading: false,
+          user: user.id
         });
       } else {
         this.setState({
@@ -131,7 +133,9 @@ class App extends Component {
               <PublicRoute
                 authed={this.state.authed}
                 path="/login"
-                component={Login}
+                component={props => (
+                  <Login {...props} loading={this.state.loading} />
+                )}
               />
               <PrivateRoute
                 authed={this.state.authed}

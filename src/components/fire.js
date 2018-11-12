@@ -20,5 +20,6 @@ firestore.settings(settings);
 const base = Rebase.createClass(firestore);
 
 export { base };
+
 export const ref = firebase.database().ref();
 export const firebaseAuth = firebase.auth;

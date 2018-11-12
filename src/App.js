@@ -63,17 +63,10 @@ class App extends Component {
 
   componentDidMount() {
     this.removeListener = firebaseAuth().onAuthStateChanged(user => {
-      if (user) {
-        this.setState({
-          authed: true,
-          loading: false,
-          user: user.id
-        });
+      if (user != null) {
+        this.setState({ authed: true, loading: false, user: user.uid });
       } else {
-        this.setState({
-          authed: false,
-          loading: false
-        });
+        this.setState({ authed: false, loading: false });
       }
     });
   }
@@ -140,7 +133,9 @@ class App extends Component {
               <PrivateRoute
                 authed={this.state.authed}
                 path="/dashboard"
-                component={DashboardPage}
+                component={props => (
+                  <DashboardPage {...props} user={this.state.user} />
+                )}
               />
               <PrivateRoute
                 authed={this.state.authed}

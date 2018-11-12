@@ -10,15 +10,16 @@ import Support from "../components/icons/support";
 class Dashboard extends Component {
   state = {
     goals: [],
-    loading: true
+    info: {},
+    loading: true,
+    user: this.props.user
   };
 
   componentWillMount() {
-    base.bindCollection("goals", {
+    const uid = this.state.user;
+    base.bindCollection(`users/${uid}/goals`, {
       context: this,
       state: "goals",
-      withRef: true,
-      withIds: true,
       then() {
         this.setState({ loading: false });
       }

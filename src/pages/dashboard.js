@@ -38,19 +38,12 @@ class Dashboard extends Component {
       );
     });
     return (
-      <div style={{ marginLeft: "10rem" }}>
+      <div>
         <Helmet title="Unplan | David's Dashboard" />
         <Welcome>
           <Details>
             <h2>Welcome, David!</h2>
-            <span>
-              <Meter>
-                <Goals />0
-              </Meter>
-              <Meter active>
-                <Support iconFill="#FD7014" />6
-              </Meter>
-            </span>
+            <Button>Profile</Button>
           </Details>
         </Welcome>
 
@@ -77,12 +70,16 @@ const Welcome = styled.div`
 
   width: 98%;
   max-width: 1000px;
-  height: 19rem;
+  height: 15rem;
 
   display: flex;
   align-items: flex-end;
 
   margin: 1rem 0 0 0;
+
+  @media (max-width: 1500px) {
+    margin: 1rem auto;
+  }
 `;
 
 const Details = styled.div`
@@ -92,46 +89,28 @@ const Details = styled.div`
   }
 
   width: 100%;
-  padding: 0 2rem;
+  padding: 1rem;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: "Fira Sans", sans-serif;
     font-weight: 300;
 
-    margin: 1rem 0;
+    margin: 0;
   }
 `;
 
-const Meter = styled.div`
-  border: #393e46 3px solid;
-  border-radius: 10px;
+const Button = styled.button`
+  background: #393e46;
+  color: #ffffff;
+  text-transform: uppercase;
 
-  display: inline-block;
-  padding: 1rem;
-  margin-right: 1rem;
-
-  font-size: 3.7rem;
-  font-weight: lighter;
-
-  vertical-align: center;
-  line-height: 0;
-  font-family: "Fira Sans", sans-serif;
-
-  svg {
-    margin-right: 1.2rem;
-  }
-
-  ${props =>
-    props.active &&
-    css`
-      border-color: #fd7014;
-      color: #fd7014;
-    `}
+  border: none;
+  padding: 0.5rem 1rem;
 `;
 
 const List = styled.div`
@@ -141,6 +120,10 @@ const List = styled.div`
   margin-top: 5rem;
 
   max-width: 1000px;
+
+  @media (max-width: 1500px) {
+    margin: 5rem auto;
+  }
 
   h2 {
     font-family: "Fira Sans", sans-serif;

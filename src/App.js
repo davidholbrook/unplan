@@ -160,15 +160,15 @@ const Nav = styled.nav`
   font-family: "Fira Sans", sans-serif;
 
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
   bottom: 0;
 
   padding: 1rem;
 
   @media (max-width: 1500px) {
-     position: relative;
-     width: 97.5vw;
+     position: static;
+     width: 100vw;
 
      display: flex;
      justify-content: space-between;
@@ -179,6 +179,10 @@ const Nav = styled.nav`
 
     display: flex;
     align-items: center;
+
+    @media(max-width: 1500px){
+      font-size: 1.2rem;
+    }
   }
 
   img {
@@ -190,8 +194,8 @@ const Nav = styled.nav`
     margin: 0 -1rem 0 -3.5rem;
 
     @media(max-width: 1500px){
-      margin: 0;
       display: flex;
+      padding-right: 2rem;
     }
 
     a {
@@ -219,9 +223,6 @@ const Nav = styled.nav`
       align-items: center;
 
       border-top: 1px solid #979797;
-      &:last-child {
-        border-bottom: 1px solid #979797;
-      }
 
       svg {
         margin-right: 1rem;
@@ -235,9 +236,6 @@ const Nav = styled.nav`
         font-size: 1rem;
 
         border-top: none;
-        &:last-child {
-        border-bottom: none;
-      }
       }
 
     }
@@ -252,14 +250,15 @@ const Nav = styled.nav`
 
       display: flex;
 
-      height: 2rem;
 
       padding: 1rem 2rem;
+      margin: 1rem;
 
       @media(max-width: 1500px){
         font-size: 1rem;
         padding: .5rem;
-        margin: 1rem 0 0 1rem;
+        margin: 1rem 0 0 2rem;
+        height: 2rem;
       }
       }
 

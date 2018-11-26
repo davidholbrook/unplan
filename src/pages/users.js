@@ -1,4 +1,5 @@
 import React from "react";
+import { base } from "../components/fire";
 
 const users = () => {
   return (

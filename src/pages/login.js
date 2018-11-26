@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 import { login, resetPassword } from "../helpers/auth";
 import Logo from "../components/icons/logo";
@@ -58,6 +59,7 @@ export default class LoginPage extends Component {
               <button type="submit" className="btn btn-primary">
                 Login
               </button>
+              <NavLink to="/">Back Home</NavLink>
             </form>
           ) : null}
         </Wrapper>

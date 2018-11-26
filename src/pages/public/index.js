@@ -2,40 +2,37 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-import Background from "../images/homepage_bg.png";
+import Logo from "../../components/icons/logo";
+import Background from "../../images/homepage_bg.png";
 
 const index = () => {
   return (
-    <LoginWrapper>
+    <MainWrapper>
       <div>
-        <h1>Unplan your day!</h1>
-        <ul>
-          <li>Plan like a kid</li>
-          <li>Learn like an adult</li>
-          <li>Love to Plan</li>
-        </ul>
+        <Logo width="200px" height="200px" iconFill="#FD7014" />
+        <Promo>Plan for Real Life!</Promo>
         <NavLink to="/login">
-          <button>Get started today!</button>
+          <button>Get started</button>
         </NavLink>
+        <NavLink to="/about">Learn More</NavLink>
       </div>
-    </LoginWrapper>
+    </MainWrapper>
   );
 };
 
 export default index;
 
-const LoginWrapper = styled.div`
+const MainWrapper = styled.div`
   width: 100vw;
   height: 100vh;
 
   overflow: hidden;
 
-  background: #393e46 url(${Background}) no-repeat;
-  background-size: cover;
+  background: #393e46 url(${Background}) repeat-x;
 
   display: flex;
 
-  align-items: center;
+  padding-top: 5rem;
   justify-content: center;
 
   margin-left: -25rem;
@@ -44,10 +41,7 @@ const LoginWrapper = styled.div`
   }
 
   div {
-    background: #ffffff;
-
-    box-shadow: 0 0 28px 10px rgba(0, 0, 0, 0.2);
-    width: 20rem;
+    width: 50rem;
 
     padding: 2rem;
     text-align: center;
@@ -55,6 +49,10 @@ const LoginWrapper = styled.div`
     ul {
       margin-left: 3rem;
       text-align: left;
+    }
+
+    a {
+      color: #ffffff;
     }
   }
 
@@ -74,4 +72,14 @@ const LoginWrapper = styled.div`
   a {
     text-decoration: none;
   }
+`;
+
+const Promo = styled.h2`
+  font-size: 2rem;
+  font-weight: 300;
+
+  color: #ffffff;
+  text-transform: uppercase;
+
+  letter-spacing: 5px;
 `;

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Helmet from "react-helmet";
 import styled, { css, keyframes } from "styled-components";
 import { base } from "../components/fire";
+import { NavLink } from "react-router-dom";
 
 import profilePic from "../images/profile-image.jpg";
 import Goals from "../components/icons/goals";
@@ -24,12 +25,22 @@ class Dashboard extends Component {
         this.setState({ loading: false });
       }
     });
+
+    base
+      .get(`users/${uid}/info`, { context: this, asArray: false })
+      .then(data => {
+        this.setState({ info: data });
+        console.log(data);
+      })
+      .catch(error => {
+        console.error("nothing here");
+      });
   }
 
   render() {
     const listItem = this.state.goals.map((item, index) => {
       return (
-        <li>
+        <li key={index}>
           {item.name}
           <span>
             <Support iconFill="#b9bab9" width="20px" height="20px" />
@@ -38,13 +49,16 @@ class Dashboard extends Component {
         </li>
       );
     });
+
     return (
       <div>
         <Helmet title="Unplan | David's Dashboard" />
         <Welcome>
           <Details>
-            <h2>Welcome, David!</h2>
-            <Button>Profile</Button>
+            <h2>Welcome, Null!</h2>
+            <NavLink to="/account">
+              <Button>Profile</Button>
+            </NavLink>
           </Details>
         </Welcome>
 

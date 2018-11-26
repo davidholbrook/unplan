@@ -12,11 +12,13 @@ import { logout } from "./helpers/auth";
 
 import Logo from "./images/logo.svg";
 
-import Index from "./pages/index";
+import Index from "./pages/public/index";
+import About from "./pages/public/about";
 import DashboardPage from "./pages/dashboard";
 import GoalsPage from "./pages/goals";
 import NotFound from "./pages/404";
 import Login from "./pages/login";
+import UserPage from "./pages/users";
 
 import Dashboard from "./components/icons/dashboard";
 import Goals from "./components/icons/goals";
@@ -124,6 +126,12 @@ class App extends Component {
                 component={Index}
               />
               <PublicRoute
+                path="/about"
+                authed={this.state.authed}
+                exact
+                component={About}
+              />
+              <PublicRoute
                 authed={this.state.authed}
                 path="/login"
                 component={props => (
@@ -135,6 +143,13 @@ class App extends Component {
                 path="/dashboard"
                 component={props => (
                   <DashboardPage {...props} user={this.state.user} />
+                )}
+              />
+              <PrivateRoute
+                authed={this.state.authed}
+                path="/account"
+                component={props => (
+                  <UserPage {...props} user={this.state.user} />
                 )}
               />
               <PrivateRoute

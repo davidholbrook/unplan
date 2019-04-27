@@ -7,5 +7,5 @@
   "readableAssets": {
     "./public": "/public/"
   },
-  "serverScripts": ["start", "dev"]
+  "serverScripts": ["start", "build"]
 }

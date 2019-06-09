@@ -12,12 +12,11 @@ class Dashboard extends Component {
   state = {
     goals: [],
     info: {},
-    loading: true,
-    user: this.props.user
+    loading: true
   };
 
   componentWillMount() {
-    const uid = this.state.user;
+    const uid = this.props.user;
     base.bindCollection(`users/${uid}/goals`, {
       context: this,
       state: "goals",

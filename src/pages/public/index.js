@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styled, {keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-import Background from "../images/homepage_bg.png";
-import Logo from "../images/logo--white.svg";
-import DownArrow from "../images/down-arrow.svg";
+import Background from "../../images/homepage_bg.png";
+import Logo from "../../images/logo--white.svg";
+import DownArrow from "../../images/down-arrow.svg";
 
 const index = () => {
   return (
@@ -21,9 +21,9 @@ const index = () => {
         <hr />
         <p>
           We provide a suite of tools that help you plan your best life, all{" "}
-          <strong>without</strong> any dated milestones which you probably
-          miss anyway. We will launch soon, join us in getting your life back
-          on new terms.
+          <strong>without</strong> any dated milestones which you probably miss
+          anyway. We will launch soon, join us in getting your life back on new
+          terms.
         </p>
         <Grid>
           <div>
@@ -45,9 +45,7 @@ const index = () => {
           <div>
             <h3>Community</h3>
             {/* TODO: add in icons */}
-            <p>
-              Get help and suppot from our amazing community.
-            </p>
+            <p>Get help and suppot from our amazing community.</p>
           </div>
         </Grid>
       </AboutUs>
@@ -56,7 +54,6 @@ const index = () => {
 };
 
 export default index;
-
 
 // TODO: create a common style file
 const LoginWrapper = styled.div`
@@ -83,7 +80,7 @@ const LoginWrapper = styled.div`
     padding: 2rem;
     text-align: center;
 
-    h1{
+    h1 {
       color: #ffffff;
       text-transform: uppercase;
     }
@@ -121,16 +118,16 @@ const AboutUs = styled.div`
 `;
 
 const Grid = styled.div`
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
 
-text-align: center;
+  text-align: center;
 
-p{
-  font-size: 1rem;
-}
-`
+  p {
+    font-size: 1rem;
+  }
+`;
 
 const upDown = keyframes`
 from{
@@ -141,7 +138,7 @@ to{
   transform: translate( 0rem, 1rem);
   opacity: 1;
 }
-`
+`;
 
 const More = styled.img`
   animation: ${upDown} 2s linear alternate infinite;

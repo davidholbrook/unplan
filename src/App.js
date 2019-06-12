@@ -10,10 +10,10 @@ import styled from "styled-components";
 import { firebaseAuth } from "./components/fire";
 import { logout } from "./helpers/auth";
 
-import Navi from './layout/nav'
+import Navi from "./layout/nav";
 
 // TODO: Massive export these?
-import Index from "./pages/index";
+import Index from "./pages/public/index";
 import DashboardPage from "./pages/dashboard";
 import GoalsPage from "./pages/goals";
 import NotFound from "./pages/404";

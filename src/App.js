@@ -19,11 +19,6 @@ import GoalsPage from "./pages/goals";
 import NotFound from "./pages/404";
 import Login from "./pages/login";
 
-// TODO: combine all these icons into one
-import Dashboard from "./components/icons/dashboard";
-import Goals from "./components/icons/goals";
-import Support from "./components/icons/support";
-
 function PrivateRoute({ component: Component, authed, ...rest }) {
   return (
     <Route

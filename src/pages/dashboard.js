@@ -51,7 +51,7 @@ class Dashboard extends Component {
 
     return (
       <div>
-        <Helmet title="Unplan | David's Dashboard" />
+        <Helmet title="Unplan | Null's Dashboard" />
         <Welcome>
           <Details>
             <h2>Welcome, Null!</h2>

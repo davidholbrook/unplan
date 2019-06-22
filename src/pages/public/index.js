@@ -11,18 +11,21 @@ const index = () => {
   body{
     background: #333333 url(${Background}) repeat-x !important;
   }
+
 `;
   return (
     <>
       <GlobalStyle />
-      <div className="grid-x">
-        <Wrapper className="cell small-6 small-offset-3 medium-offset-3">
+      <Wrapper>
+        <Inner>
           <img src={Logo} alt="Unset Logo" width="60%" />
           <h1>Unplan your day</h1>
-          <Button className="button expanded">Login</Button>
+          <a href="/login">
+            <Button className="button large expanded">LOG IN</Button>
+          </a>
           <More src={DownArrow} alt="There's More" />
-        </Wrapper>
-      </div>
+        </Inner>
+      </Wrapper>
     </>
   );
 };
@@ -30,9 +33,20 @@ const index = () => {
 export default index;
 
 const Wrapper = styled.div`
-  text-align: center;
-  margin-top: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10vh 0;
 
+  /* counteract the push from app.js */
+  @media (min-width: 1500px) {
+    margin-left: -25rem;
+  }
+`;
+
+const Inner = styled.div`
+  width: 30rem;
+  text-align: center;
   h1 {
     color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;

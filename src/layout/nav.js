@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import {NavLink} from 'react-router-dom'
+import React from "react";
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 import { logout } from "../helpers/auth";
 
@@ -11,7 +11,7 @@ import Dashboard from "../components/icons/dashboard";
 import Goals from "../components/icons/goals";
 import Support from "../components/icons/support";
 
-const Navi = ({auth}) => {
+const Navi = ({ auth }) => {
   return (
     <div>
       {auth === true ? (
@@ -53,21 +53,16 @@ const Navi = ({auth}) => {
       ) : null}
     </div>
   );
-}
+};
 
-export default Navi
+export default Navi;
 
 const Nav = styled.nav`
   background: #393e46;
   color: #eeeeee;
   font-family: "Fira Sans", sans-serif;
 
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
 
-  padding: 1rem;
 
   @media (max-width: 1500px) {
      position: static;

@@ -11,7 +11,8 @@ import Support from "../components/icons/support";
 class Dashboard extends Component {
   state = {
     goals: [],
-    info: {},
+    fName: "",
+    lName: "",
     loading: true
   };
 
@@ -26,13 +27,20 @@ class Dashboard extends Component {
     });
 
     base
-      .get(`users/${uid}/info/name`, { context: this, asArray: false })
+      .get(`users/${uid}/info`, { context: this, asArray: false })
       .then(data => {
-        this.setState({ info: data });
-        console.log(data);
+        let fName = "";
+        let lName = "";
+
+        const mapp = data.map(aaa => {
+          fName = aaa.first;
+          lName = aaa.last;
+        });
+
+        this.setState({ fName: fName, lName: lName });
       })
       .catch(error => {
-        console.error("nothing here");
+        console.error(error);
       });
   }
 
@@ -54,7 +62,7 @@ class Dashboard extends Component {
         <Helmet title="Unplan | Null's Dashboard" />
         <Welcome>
           <Details>
-            <h2>Welcome, Null!</h2>
+            <h2>Welcome, {this.state.fName ? this.state.fName : "👽"}</h2>
             <NavLink to="/account">
               <Button>Profile</Button>
             </NavLink>

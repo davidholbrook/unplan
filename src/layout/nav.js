@@ -62,15 +62,11 @@ const Nav = styled.nav`
   color: #eeeeee;
   font-family: "Fira Sans", sans-serif;
 
+  position: static;
+  width: 100vw;
 
-
-  @media (max-width: 1500px) {
-     position: static;
-     width: 100vw;
-
-     display: flex;
-     justify-content: space-between;
-  }
+  display: flex;
+  justify-content: space-between;
 
   h1 {
     text-transform: uppercase;
@@ -91,10 +87,8 @@ const Nav = styled.nav`
     list-style: none;
     margin: 0 -1rem 0 -3.5rem;
 
-    @media(max-width: 1500px){
-      display: flex;
-      padding-right: 2rem;
-    }
+    display: flex;
+    padding-right: 2rem;
 
     a {
       color: #eeeeee;
@@ -114,13 +108,12 @@ const Nav = styled.nav`
     li {
       font-size: 1.5rem;
 
-      margin: 0;
+      margin: .5rem 0 0 0;
       padding: 1rem 0 1rem 1.5rem;
 
       display: flex;
       align-items: center;
-
-      border-top: 1px solid #979797;
+      height: 76px;
 
       svg {
         margin-right: 1rem;
@@ -150,7 +143,7 @@ const Nav = styled.nav`
 
 
       padding: 1rem 2rem;
-      margin: 1rem;
+      margin: 1rem 1rem 1rem 3rem;
 
       @media(max-width: 1500px){
         font-size: 1rem;

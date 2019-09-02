@@ -107,8 +107,10 @@ const Nav = styled.nav`
 
     li {
       font-size: 1.5rem;
-
-      margin: .5rem 0 0 0;
+      margin: -.5rem 0 0 0;
+      @media(min-width:1500px){
+        margin: .5rem 0 0 0;
+      }
       padding: 1rem 0 1rem 1.5rem;
 
       display: flex;

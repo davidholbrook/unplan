@@ -26,7 +26,7 @@ class Dashboard extends Component {
     });
 
     base
-      .get(`users/${uid}/info`, { context: this, asArray: false })
+      .get(`users/${uid}/info/name`, { context: this, asArray: false })
       .then(data => {
         this.setState({ info: data });
         console.log(data);

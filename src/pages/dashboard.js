@@ -58,8 +58,8 @@ class Dashboard extends Component {
     });
 
     return (
-      <div>
-        <Helmet title="Unplan | Null's Dashboard" />
+      <>
+        <Helmet title="Unplan | Dashboard" />
         <Welcome>
           <Details>
             <h2>Welcome, {this.state.fName ? this.state.fName : "👽"}</h2>
@@ -77,7 +77,7 @@ class Dashboard extends Component {
             <ul>{listItem ? listItem : "No Goals created yet!"}</ul>
           )}
         </List>
-      </div>
+      </>
     );
   }
 }
@@ -93,11 +93,6 @@ const Welcome = styled.div`
   width: 98%;
   max-width: 1000px;
   height: 15rem;
-
-  display: flex;
-  align-items: flex-end;
-
-  margin: 1rem 0 0 0;
 
   @media (max-width: 1500px) {
     margin: 1rem auto;

@@ -14,6 +14,7 @@ import Navi from "./layout/nav";
 
 // TODO: Massive export these?
 import Index from "./pages/public/index";
+import Account from "./pages/account";
 import DashboardPage from "./pages/dashboard";
 import GoalsPage from "./pages/goals";
 import NotFound from "./pages/404";
@@ -102,6 +103,13 @@ class App extends Component {
                 authed={this.state.authed}
                 path="/goals"
                 component={GoalsPage}
+              />
+              <PrivateRoute
+                authed={this.state.authed}
+                path="/account"
+                component={props => (
+                  <Account {...props} user={this.state.user} />
+                )}
               />
               <Route component={NotFound} />
             </Switch>

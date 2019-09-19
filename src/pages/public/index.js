@@ -37,11 +37,6 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin: 10vh 0;
-
-  /* counteract the push from app.js */
-  @media (min-width: 1500px) {
-    margin-left: -25rem;
-  }
 `;
 
 const Inner = styled.div`

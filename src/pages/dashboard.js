@@ -94,6 +94,8 @@ const Welcome = styled.div`
   max-width: 1000px;
   height: 15rem;
 
+  margin: 0 auto;
+
   @media (max-width: 1500px) {
     margin: 1rem auto;
   }
@@ -135,7 +137,7 @@ const List = styled.div`
   background: white;
   box-shadow: 0 0 28px 10px rgba(0, 0, 0, 0.2);
 
-  margin-top: 5rem;
+  margin: 5rem auto 0;
 
   max-width: 1000px;
 
@@ -158,7 +160,7 @@ const List = styled.div`
 
   ul {
     list-style: none;
-    margin-left: -20px;
+    margin-left: 1rem;
   }
 
   li {

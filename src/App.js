@@ -77,43 +77,39 @@ class App extends Component {
       <Router>
         <div>
           <Navi auth={this.state.authed} />
-          <Push>
-            <Switch>
-              <PublicRoute
-                path="/"
-                authed={this.state.authed}
-                exact
-                component={Index}
-              />
-              <PublicRoute
-                authed={this.state.authed}
-                path="/login"
-                component={props => (
-                  <Login {...props} loading={this.state.loading} />
-                )}
-              />
-              <PrivateRoute
-                authed={this.state.authed}
-                path="/dashboard"
-                component={props => (
-                  <DashboardPage {...props} user={this.state.user} />
-                )}
-              />
-              <PrivateRoute
-                authed={this.state.authed}
-                path="/goals"
-                component={GoalsPage}
-              />
-              <PrivateRoute
-                authed={this.state.authed}
-                path="/account"
-                component={props => (
-                  <Account {...props} user={this.state.user} />
-                )}
-              />
-              <Route component={NotFound} />
-            </Switch>
-          </Push>
+          <Switch>
+            <PublicRoute
+              path="/"
+              authed={this.state.authed}
+              exact
+              component={Index}
+            />
+            <PublicRoute
+              authed={this.state.authed}
+              path="/login"
+              component={props => (
+                <Login {...props} loading={this.state.loading} />
+              )}
+            />
+            <PrivateRoute
+              authed={this.state.authed}
+              path="/dashboard"
+              component={props => (
+                <DashboardPage {...props} user={this.state.user} />
+              )}
+            />
+            <PrivateRoute
+              authed={this.state.authed}
+              path="/goals"
+              component={GoalsPage}
+            />
+            <PrivateRoute
+              authed={this.state.authed}
+              path="/account"
+              component={props => <Account {...props} user={this.state.user} />}
+            />
+            <Route component={NotFound} />
+          </Switch>
         </div>
       </Router>
     );
@@ -121,10 +117,3 @@ class App extends Component {
 }
 
 export default App;
-
-const Push = styled.div`
-  margin-left: 25rem;
-  @media (max-width: 1500px) {
-    margin-left: 0rem;
-  }
-`;

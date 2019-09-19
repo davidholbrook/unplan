@@ -34,6 +34,7 @@ class Users extends Component {
             ref={input => (this.text = input)}
             onChange={input => this.handleChange(input)}
           />
+          <Button>Submit</Button>
         </Main>
       </>
     );
@@ -48,4 +49,18 @@ const Main = styled.main`
   height: 15rem;
 
   margin: 1rem auto;
+`;
+
+const Button = styled.button`
+  background: #fd7014;
+
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  border: none;
+
+  display: block;
+  margin: 2rem 0 0 0 0;
+  padding: 1rem 2rem;
 `;

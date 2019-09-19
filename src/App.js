@@ -77,7 +77,7 @@ class App extends Component {
       <Router>
         <div>
           <Navi auth={this.state.authed} />
-          <Push>
+          <Center>
             <Switch>
               <PublicRoute
                 path="/"
@@ -92,6 +92,7 @@ class App extends Component {
                   <Login {...props} loading={this.state.loading} />
                 )}
               />
+
               <PrivateRoute
                 authed={this.state.authed}
                 path="/dashboard"
@@ -113,7 +114,7 @@ class App extends Component {
               />
               <Route component={NotFound} />
             </Switch>
-          </Push>
+          </Center>
         </div>
       </Router>
     );
@@ -122,9 +123,6 @@ class App extends Component {
 
 export default App;
 
-const Push = styled.div`
-  margin-left: 25rem;
-  @media (max-width: 1500px) {
-    margin-left: 0rem;
-  }
+const Center = styled.div`
+  margin: 1rem auto 0rem auto;
 `;

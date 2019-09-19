@@ -81,9 +81,6 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  ${"" /* counteract the PUSH */}
-  margin-left: -25rem;
-
   @media (max-width: 1500px) {
     margin-left: 0rem;
   }

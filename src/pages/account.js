@@ -11,6 +11,7 @@ class Users extends Component {
 
   componentWillMount() {
     const uid = this.props.user;
+    //TODO add in current name and submit new name
   }
 
   handleChange(event) {

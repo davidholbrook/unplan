@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./App.css";
+import "./styles/foundation.min.css";
+import "./styles/styles.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import "./foundation.min.css";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

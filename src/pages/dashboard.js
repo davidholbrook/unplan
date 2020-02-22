@@ -19,24 +19,20 @@ class Dashboard extends Component {
   };
 
   componentWillMount() {
-    const uid = this.props.user;
-    base.bindCollection(`users/${uid}/goals`, {
-      context: this,
-      state: "goals",
-      then() {
-        this.setState({ loading: false });
-      }
+    base.get("goals", { context: this }).then(data => {
+      this.setState({ loading: false });
+      this.setState({ goals: data });
     });
 
     base
-      .get(`users/${uid}/info`, { context: this, asArray: false })
+      .get("users", { context: this, asArray: false })
       .then(data => {
         let fName = "";
         let lName = "";
 
-        const mapp = data.map(aaa => {
-          fName = aaa.first;
-          lName = aaa.last;
+        data.map(aaa => {
+          fName = aaa.firstname;
+          lName = aaa.lastname;
         });
 
         this.setState({ fName: fName, lName: lName });

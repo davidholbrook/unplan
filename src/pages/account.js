@@ -21,47 +21,29 @@ class Users extends Component {
   render() {
     return (
       <>
-        <Main>
-          <h1>
+        <section className="transparent">
+          <h1 className="sectionTitle">Change Your Name</h1>
+          <h2 class="h4">
             Hello, {this.state.value.length !== 0 ? this.state.value : "👽"}!
-          </h1>
-          <hr />
-          <label for="cnm" class="h4">
-            Change you name
+          </h2>
+          <label for="first" class="h5">
+            First Name
           </label>
           <input
             type="text"
-            name="cnm"
+            name="first"
             ref={input => (this.text = input)}
             onChange={input => this.handleChange(input)}
           />
-          <Button>Submit</Button>
-        </Main>
+          <label for="cnm" class="h5">
+            Last Name
+          </label>
+          <input type="text" name="last" />
+          <button className="button primary small">Submit</button>
+        </section>
       </>
     );
   }
 }
 
 export default Users;
-
-const Main = styled.main`
-  width: 98%;
-  max-width: 1000px;
-  height: 15rem;
-
-  margin: 1rem auto;
-`;
-
-const Button = styled.button`
-  background: #fd7014;
-
-  font-size: 1rem;
-  text-transform: uppercase;
-  color: #ffffff;
-
-  border: none;
-
-  display: block;
-  margin: 2rem 0 0 0 0;
-  padding: 1rem 2rem;
-`;

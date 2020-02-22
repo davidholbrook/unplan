@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+/* ===============================
+            Layout
+   =============================== */
+
 section {
   width: 90%;
   max-width: 62.5rem;
@@ -14,18 +18,12 @@ section {
   }
 }
 
-section.spacer {
-  margin-bottom: 5rem;
+section.transparent {
+  box-shadow: none;
 }
 
-.fancy {
-  font-family: "Fira Sans", sans-serif;
-  font-size: 4rem;
-
-  color: rgba(0, 0, 0, 0.5);
-
-  display: inline-block;
-  margin: -4rem 0 -4rem 1rem;
+section.spacer {
+  margin-bottom: 5rem;
 }
 
 .centered {
@@ -36,4 +34,22 @@ section.spacer {
 
 .centered.space {
   margin: 3rem;
+}
+
+/* ===============================
+            Type Styles
+   =============================== */
+.sectionTitle {
+  border-bottom: 1px solid #000000;
+  margin-bottom: 2rem;
+}
+
+.fancy {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 4rem;
+
+  color: rgba(0, 0, 0, 0.5);
+
+  display: inline-block;
+  margin: -4rem 0 -4rem 1rem;
 }

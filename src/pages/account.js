@@ -5,17 +5,16 @@ import { base } from "../components/fire";
 
 class Users extends Component {
   state = {
-    fName: "",
-    value: ""
+    first: "",
+    last: "",
   };
-
-  componentWillMount() {
-    const uid = this.props.user;
-    //TODO add in current name and submit new name
-  }
 
   handleChange(event) {
     this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
   }
 
   render() {
@@ -23,22 +22,18 @@ class Users extends Component {
       <>
         <section className="transparent">
           <h1 className="sectionTitle">Change Your Name</h1>
-          <h2 class="h4">
-            Hello, {this.state.value.length !== 0 ? this.state.value : "👽"}!
-          </h2>
           <label for="first" class="h5">
             First Name
           </label>
           <input
             type="text"
             name="first"
-            ref={input => (this.text = input)}
-            onChange={input => this.handleChange(input)}
+            ref={(first) => (this.text = first)}
           />
-          <label for="cnm" class="h5">
+          <label for="lst" class="h5">
             Last Name
           </label>
-          <input type="text" name="last" />
+          <input type="text" name="last" ref={(last) => (this.text = last)} />
           <button className="button primary small">Submit</button>
         </section>
       </>

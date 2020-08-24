@@ -96,9 +96,7 @@ class App extends Component {
               <PrivateRoute
                 authed={this.state.authed}
                 path="/dashboard"
-                component={props => (
-                  <DashboardPage {...props} user={this.state.user} />
-                )}
+                component={props => <DashboardPage {...props} />}
               />
               <PrivateRoute
                 authed={this.state.authed}
@@ -108,9 +106,7 @@ class App extends Component {
               <PrivateRoute
                 authed={this.state.authed}
                 path="/account"
-                component={props => (
-                  <Account {...props} user={this.state.user} />
-                )}
+                component={props => <Account {...props} />}
               />
               <Route component={NotFound} />
             </Switch>
